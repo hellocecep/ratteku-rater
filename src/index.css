@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,22 +35,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,41 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-glass rounded-lg;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .ratteku-good-card {
+    @apply bg-ratteku-good-light border border-ratteku-good/10 shadow-md rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+
+  .ratteku-bad-card {
+    @apply bg-ratteku-bad-light border border-ratteku-bad/10 shadow-md rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+
+  .ratteku-neutral-card {
+    @apply bg-ratteku-neutral border border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+}
+
+#root {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
 }
